@@ -16,10 +16,10 @@ var solution = Math.floor(Math.random() * 100) + 1;
 // TODO : complétez le programme
 
 // Initialise des variables
-var nombre = 0, nombreTentative = 0; 
+var nombre = -1, nombreTentative = 0; 
 
-while ((nombre !== solution) && (nombreTentative <= 6)) {
-		nombre = Number(prompt("Entrez un nombre entre 1 et 100 :"));	// Saisie du nombre par l'utilisateur (6 essais max)
+while ((nombre !== solution) && (nombreTentative < 6)) {
+		nombre = Number(prompt("Entrez un nombre entre 1 et 100 : essai n° " + (nombreTentative + 1)));	// Saisie du nombre par l'utilisateur (6 essais max)
 		nombreTentative++;		// Incrémente le nombre de tentative
 
 	if ((nombre < 1) || (nombre > 100) || isNaN(nombre)) {	// Vérifie si c'est bien un nombre (type) et bien entre 1 et 100
@@ -32,7 +32,7 @@ while ((nombre !== solution) && (nombreTentative <= 6)) {
 		console.log(nombre + " est trop grand");
 	}
 }
-	if ((nombre == solution) && (nombreTentative <= 6)) {	// Si nombre égale au résultat avec 6 essais max
+	if (nombre === solution) {	// Si nombre égale au résultat avec 6 essais max
 		console.log("Bravo !! La solution est : " + solution);
 		console.log("Vous avez trouvé en " + nombreTentative + " essai(s)");
 	}
